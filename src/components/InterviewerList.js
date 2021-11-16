@@ -1,30 +1,31 @@
-import React from "react" ;
+import React from "react";
+
+import classnames from "classnames";
 import InterviewerListItem from "components/InterviewerListItem";
-import "components/InterviewerList.scss";
+import "./InterviewerList.scss";
 
- // to show list of interviewers
- export default function InterviewerList(props) {
+export default function InterviewerList(props) {
+  const interviewerList = classnames("interviewers");
 
- const interviewers = props.interviewers.map(interviewer => {
+  // to show list of interviewers
+  const listOfInterviwers = props.interviewers.map((interviewer) => {
+    return (
+      <InterviewerListItem
+        key={interviewer.id}
+        name={interviewer.name}
+        avatar={interviewer.avatar}
+        selected={props.value === interviewer.id}
+        setInterviewer={() => props.onChange(interviewer.id)}
+      />
+    );
+  });
+
   return (
-    <InterviewerListItem
-      key={interviewer.id}
-      name={interviewer.name}
-      avatar={interviewer.avatar}
-      
-      selected={interviewer.id === props.interviewer}
-      setInterviewer={() => props.setInterviewer(interviewer.id)}
-    />
+    <section className={interviewerList}>
+      <h4 className="interviewers__header text--light">Interviewer</h4>
+      <ul className="interviewers__list">{listOfInterviwers}</ul>
+    </section>
   );
-});
-return (
-  <li className={interviewers} onClick={props.setInterviewer}>
-    <img
-      className="interviewers__item-image"
-      src={props.avatar}
-      alt={props.name}
-    />
-    {props.selected && props.name}
-  </li>
-);
- }
+}
+
+
