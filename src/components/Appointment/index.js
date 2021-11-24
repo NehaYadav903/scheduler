@@ -19,15 +19,22 @@ export default function Appointment(props) {
 return (
 <article className="appointment" data-testid="appointment">
 <Header time={props.time} />
-{props.interview ? (
-  <>
-    <Show student={props.interview.student} interviewer={props.interview.interviewer.name} />
-  </>
-) : (
-  <>
-    <Empty />
-  </>
+{mode === CREATE && (
+        <Form
+          interviewers={props.interviewers}
+          onCancel={() => back(CANCEL)}
+          onSave={save}
+/>
 )}
+ {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      {mode === SHOW && (
+        <Show
+          student={props.interview.student}
+          interviewer={props.interview.interviewer}
+          onDelete={() => transition(CONFIRM)}
+          onEdit={() => transition(EDIT)}
+        />
+      )}
 </article>
 );
 }
