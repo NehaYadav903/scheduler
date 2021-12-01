@@ -105,9 +105,10 @@ storiesOf("InterviewerListItem", module)
   ))
   .add("Clickable", () => (
     <InterviewerListItem
-      name={interviewer.name}
-      avatar={interviewer.avatar}
-      setInterviewer={() => action("setInterviewer")(interviewer.id)}
+    id={interviewer.id}
+    name={interviewer.name}
+    avatar={interviewer.avatar}
+    setInterviewer={event => action("setInterviewer")(interviewer.id)}
     />
   ));
 
@@ -126,18 +127,15 @@ storiesOf("InterviewerList", module)
   .add("Initial", () => (
     <InterviewerList
       interviewers={interviewers}
+      setInterviewer={action("setInterviewer")}
+      onChange={action("onChange")}
     />
   ))
-  .add("Selected", () => (
+  .add("Preselected", () => (
     <InterviewerList
       interviewers={interviewers}
       value={3}
-    />
-  ))
-  .add("Clickable", () => (
-    <InterviewerList
-      interviewers={interviewers}
-      onChange={action("setInterviewer")}
+      onChange={action("onChange")}
     />
   ));
 
@@ -148,7 +146,8 @@ storiesOf("Appointment", module)
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
-  .add("Empty", () => <Empty onAdd={action("onAdd")} />).add("Show", () => (
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+  .add("Show", () => (
     <Show
       student="Lydia Miller-Jones"
       interviewer={interviewers[0]}
@@ -172,7 +171,7 @@ storiesOf("Appointment", module)
   ))
   .add("Edit", () => (
     <Form
-      name="Neha Yadav"
+      name="Neha"
       interviewers={interviewers}
       interviewer={3}
       onSave={action("onSave")}
@@ -188,18 +187,18 @@ storiesOf("Appointment", module)
   ))
   .add("Appointment Empty", () => (
     <Fragment>
-      <Appointment id={1} time="4pm" />
-      <Appointment time="5pm" />
+      <Appointment id={1} time="12pm" />
+      <Appointment id="last" time="1pm" />
     </Fragment>
   ))
   .add("Appointment Booked", () => (
     <Fragment>
       <Appointment
         id={1}
-        time="4pm"
-        interview={{ student: "Lydia Miller-Jones", interviewer }}
+        time="12pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer: interviewer}}
       />
-      <Appointment time="5pm" />
+      <Appointment id="last" time="1pm" />
     </Fragment>
   ));
 
