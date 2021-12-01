@@ -6,14 +6,16 @@ Interview Scheduler is a SPA (Single Page Application) for tracking students int
 
 ### Daily view
  !['booked-slots-available']
+(https://github.com/NehaYadav903/scheduler/blob/ff661f279db741f0b27f40911c2ae8da5b602d31/public/images/DailyView.png)
 
  ### New appointment booking
  !['book-new-apt']
+ (https://github.com/NehaYadav903/scheduler/blob/ff661f279db741f0b27f40911c2ae8da5b602d31/public/images/InterviewBook.png)
 
  ### Interview cancelation
  !['cancel-apt-confirm-delete']
+ (https://github.com/NehaYadav903/scheduler/blob/ff661f279db741f0b27f40911c2ae8da5b602d31/public/images/InterviewCancel.png)
 
- 
  **Note** : _For full functionality both must run concurrently: the client and the API server applications (see database* setup below)._
 
 ## Setup
