@@ -5,34 +5,30 @@ import Button from "components/Button";
 import "./styles.scss";
 
 export default function Form(props) {
-  const [student, setStudent] = useState(props.student || "");
+  const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
   //to reset student name and interviewer
-  const reset = () => {
-    setStudent("");
+  function reset() {
+    setName("");
     setInterviewer(null);
   };
 
   // form cancel button
-  const cancel = () => {
+  function cancel() {
     reset();
     props.onCancel();
   };
 
   // to show error message if input field is empty
   function validate() {
-    if (student === "") {
+    if (name === "") {
       setError("Student name cannot be blank");
       return;
     }
-    if (!interviewer) {
-      setError("Interviewer cannot be blank");
-      return;
-    }
     setError("");
-    props.onSave(student, interviewer);
+    props.onSave(name, interviewer);
   }
 
   return (
@@ -42,15 +38,15 @@ export default function Form(props) {
           <input
             className="appointment__create-input text--semi-bold"
             name="student"
-            value={student}
-            onChange={(event) => setStudent(event.target.value)}
+            value={name}
+            onChange={(event) => setName(event.target.value)}
             type="text"
             placeholder="Enter Student Name"
             /*
             
           This must be a controlled component
         */
-          data-testid="student-name-input"
+              data-testid="student-name-input"
           />
         </form>
         <section className="appointment__validation">{error}</section>
