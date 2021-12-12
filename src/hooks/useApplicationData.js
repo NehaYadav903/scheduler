@@ -53,7 +53,6 @@ export default function useApplicationData(props) {
   }, []);
 
   const bookInterview = (id, interview) => {
-    console.log("id",id ,"interview", interview);
     return axios.put(`/api/appointments/${id}`, { interview }).then((r) =>
       dispatch({
         type: SET_INTERVIEW,
