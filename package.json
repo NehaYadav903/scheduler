@@ -13,6 +13,7 @@
     "react-scripts": "3.0.0"
   },
   "scripts": {
+    "cypress": "cypress open -P .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,7 +47,6 @@
     "react-test-renderer": "^16.14.0"
   },
   "jest": {
-    
     "watchPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
@@ -56,5 +56,5 @@
       "!src/index.js"
     ]
   },
-  "proxy": "http://localhost:8001/"
+  "proxy": "http://localhost:8001"
 }
