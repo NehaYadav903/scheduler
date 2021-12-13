@@ -31,11 +31,14 @@ npm start
 npm test
 ```
 
-## Running Storybook Visual Testbed
+## Running Storybook Visual Test 
 
 ```sh
 npm run storybook
 ```
+
+## Database Reset
+http://localhost:8001/api/debug/reset
 
 ## API server/*Database Setup
 For full functionality both must run concurrently: the client and the API server applications.
