@@ -14,13 +14,11 @@ import {
   getByPlaceholderText,
   queryByText,
   queryByAltText
-  
+
 }
   from "@testing-library/react";
 
 import Application from "components/Application";
-
-
 
 describe("Application", () => {
   it("changes the schedule when a new day is selected", async () => {
