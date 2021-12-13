@@ -38,7 +38,9 @@ npm run storybook
 ```
 
 ## Database Reset
+```sh
 http://localhost:8001/api/debug/reset
+```
 
 ## API server/*Database Setup
 For full functionality both must run concurrently: the client and the API server applications.
