@@ -67,14 +67,14 @@ export default function Appointment(props) {
       transition(CONFIRM);
     }
   };
-
+console.log({props});
     return (
       <article className="appointment" data-testid="appointment">
         <Header time={props.time} />
         {mode === CREATE && (
           <Form
             name={props.name}
-            value={props.value}
+            interviewer={props.value}
             interviewers={props.interviewers}
             onSave={save}
             onCancel={back}
@@ -101,7 +101,7 @@ export default function Appointment(props) {
         {mode === EDIT && (
           <Form
           name={props.name ? props.name : props.interview.student}
-          value={props.value ? props.value : props.interview.interviewer.id}
+          interviewer={props.value ? props.value : props.interview.interviewer.id}
             interviewers={props.interviewers}
             onCancel={back}
             onSave={save}
